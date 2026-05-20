@@ -33,17 +33,17 @@ PROM_VERSION=2.52.0
 cd /tmp
 wget -q "https://github.com/prometheus/prometheus/releases/download/v${PROM_VERSION}/prometheus-${PROM_VERSION}.linux-amd64.tar.gz"
 tar xzf "prometheus-${PROM_VERSION}.linux-amd64.tar.gz"
-sudo mv "prometheus-${PROM_VERSION}.linux-amd64/prometheus" /usr/local/bin/
-sudo mv "prometheus-${PROM_VERSION}.linux-amd64/promtool" /usr/local/bin/
+mv "prometheus-${PROM_VERSION}.linux-amd64/prometheus" /usr/local/bin/
+mv "prometheus-${PROM_VERSION}.linux-amd64/promtool" /usr/local/bin/
 rm -rf "prometheus-${PROM_VERSION}.linux-amd64"*
 echo "prometheus ok"
 
 # grafana
-sudo apt-get install -y -q apt-transport-https software-properties-common wget
-wget -q -O - https://apt.grafana.com/gpg.key | sudo apt-key add -
-echo "deb https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list > /dev/null
-sudo apt-get update -q
-sudo apt-get install -y -q grafana
+apt-get install -y -q apt-transport-https software-properties-common wget
+wget -q -O - https://apt.grafana.com/gpg.key | apt-key add -
+echo "deb https://apt.grafana.com stable main" | tee /etc/apt/sources.list.d/grafana.list > /dev/null
+apt-get update -q
+apt-get install -y -q grafana
 echo "grafana ok"
 
 # nvidia gpu exporter
@@ -51,7 +51,7 @@ EXPORTER_VERSION=1.1.0
 cd /tmp
 wget -q "https://github.com/utkuozdemir/nvidia_gpu_exporter/releases/download/v${EXPORTER_VERSION}/nvidia_gpu_exporter_${EXPORTER_VERSION}_linux_x86_64.tar.gz"
 tar xzf "nvidia_gpu_exporter_${EXPORTER_VERSION}_linux_x86_64.tar.gz"
-sudo mv nvidia_gpu_exporter /usr/local/bin/
+mv nvidia_gpu_exporter /usr/local/bin/
 rm -f "nvidia_gpu_exporter_${EXPORTER_VERSION}_linux_x86_64.tar.gz"
 echo "nvidia_gpu_exporter ok"
 

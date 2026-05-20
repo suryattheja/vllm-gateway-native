@@ -264,10 +264,6 @@ async def chat_completions(
         # model_dump() is the Pydantic v2 method (previously called .dict() in v1).
         payload = body.model_dump()
 
-        # Attach our internal request_id to the payload so vLLM logs it too.
-        # This creates an end-to-end trace: gateway log + vLLM log share the same ID.
-        payload["extra_body"] = {"request_id": request_id}
-
         # Branch on whether the client wants streaming or a complete response.
         if body.stream:
             # Streaming: return tokens as they are generated (Server-Sent Events format).
