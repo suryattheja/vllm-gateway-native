@@ -13,8 +13,6 @@ natively on a Linux machine — no Docker required.
 | Grafana           | 3000  | Dashboards                       |
 | NVIDIA Exporter   | 9835  | GPU hardware metrics (optional)  |
 
----
-
 ## 1. Prerequisites
 
 ```bash

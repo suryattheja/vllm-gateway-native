@@ -7,6 +7,12 @@ set -a; source "$ROOT/.env"; set +a
 
 export HUGGING_FACE_HUB_TOKEN="$HF_TOKEN"
 
+# Prefer torch's bundled NCCL over the system one to avoid symbol conflicts.
+TORCH_LIB="$ROOT/vllmenv/lib/python3.10/site-packages/torch/lib"
+if [ -d "$TORCH_LIB" ]; then
+    export LD_LIBRARY_PATH="$TORCH_LIB${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+fi
+
 exec "$ROOT/vllmenv/bin/python" -m vllm.entrypoints.openai.api_server \
     --model Qwen/Qwen2.5-3B-Instruct \
     --dtype float16 \

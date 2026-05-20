@@ -1,5 +1,5 @@
 # requirements.txt — Python dependencies for the gateway service
-# These are installed by pip inside the Docker container when the image is built.
+# Installed into the project's vllmenv by setup.sh.
 # Pin exact versions (==) for reproducibility — "pip install fastapi" might install
 # a different version tomorrow and break things. Exact pins mean every build is identical.
 
