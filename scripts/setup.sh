@@ -11,7 +11,7 @@ if [ ! -f "$ROOT/.env" ]; then
 fi
 
 # venv
-python3 -m venv "$ROOT/vllmenv"
+python3 -m venv "$ROOT/vllmenv" --system-site-packages
 source "$ROOT/vllmenv/bin/activate"
 pip install --upgrade pip -q
 echo "venv ok"
@@ -19,10 +19,6 @@ echo "venv ok"
 # gateway deps
 pip install -r "$ROOT/gateway/requirements.txt" -q
 echo "gateway deps ok"
-
-# torch (cu118 — matches runpod/pytorch:2.1.0-py3.10-cuda11.8.0 container)
-pip install torch==2.1.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 -q
-echo "torch ok"
 
 # vllm
 pip install vllm==0.4.2 -q
