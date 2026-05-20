@@ -7,7 +7,7 @@ set -a; source "$ROOT/.env"; set +a
 
 export HUGGING_FACE_HUB_TOKEN="$HF_TOKEN"
 
-exec "$ROOT/.venv/bin/python" -m vllm.entrypoints.openai.api_server \
+exec "$ROOT/vllmenv/bin/python" -m vllm.entrypoints.openai.api_server \
     --model Qwen/Qwen2.5-3B-Instruct \
     --dtype float16 \
     --max-model-len 8192 \

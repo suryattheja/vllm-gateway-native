@@ -6,7 +6,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 set -a; source "$ROOT/.env"; set +a
 
 cd "$ROOT/gateway"
-exec "$ROOT/.venv/bin/uvicorn" main:app \
+exec "$ROOT/vllmenv/bin/uvicorn" main:app \
     --host 0.0.0.0 \
     --port "${GATEWAY_PORT:-8080}" \
     --workers 1
