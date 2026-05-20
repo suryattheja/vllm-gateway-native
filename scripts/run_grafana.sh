@@ -15,4 +15,6 @@ exec grafana-server \
     cfg:default.paths.provisioning="$ROOT/grafana/provisioning" \
     cfg:default.server.http_port=3000 \
     cfg:default.security.admin_password=admin \
-    cfg:default.auth.anonymous.enabled=true
+    cfg:default.auth.anonymous.enabled=true \
+    cfg:default.security.cookie_samesite=disabled \
+    cfg:default.security.allow_embedding=true
