@@ -5,4 +5,4 @@ providers:
     folder: LLM
     type: file
     options:
-      path: /var/lib/grafana/dashboards
+      path: /workspace/vllm-gateway-native/grafana/dashboards

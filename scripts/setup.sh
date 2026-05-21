@@ -25,7 +25,7 @@ pip install vllm==0.4.2 -q
 echo "vllm ok"
 
 # locust
-pip install locust -q
+pip install locust==2.44.0 -q
 echo "locust ok"
 
 # prometheus
