@@ -20,8 +20,8 @@ echo "venv ok"
 pip install -r "$ROOT/gateway/requirements.txt" -q
 echo "gateway deps ok"
 
-# vllm
-pip install vllm==0.4.2 -q
+# vllm — compatible with torch 2.3.x (cu121) in the RunPod container
+pip install vllm==0.5.4 transformers==4.43.4 -q
 echo "vllm ok"
 
 # locust

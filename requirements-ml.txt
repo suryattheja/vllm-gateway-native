@@ -1,2 +1,8 @@
-# torch is pre-installed in the container — inherited via --system-site-packages
-vllm==0.4.2
+# Container: runpod/pytorch:2.1.0-py3.10-cuda11.8.0-devel-ubuntu22.04
+# Actual torch version in container: 2.3.0+cu121 (inherited via --system-site-packages)
+#
+# vllm 0.5.4 — last release compatible with torch 2.3.x
+# transformers 4.43.4 — last release that doesn't require torch >= 2.4
+
+vllm==0.5.4
+transformers==4.43.4
